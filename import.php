@@ -1,15 +1,33 @@
 <?php
 
+// Arquivo de configuracao
+define ('CONFIG_FILE', '../code/blog/wp-config.php');
+
 // Change this as you need
 define('LOCAL_BASE_URL',  'local.url.com.br');
-define('SERVER_BASE_URL',  'url.com.br');
 
-// Config file
-$config = file('../code/blog/wp-config.php');
+// run on terminal using:
+// php import.php [server]
+
+if (!empty($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'server') {
+    define('SERVER_BASE_URL',  'url.com.br/');
+} else {
+    define('SERVER_BASE_URL',  'local.url.com.br/');
+}
 
 // Importing...
+//
+// define('DB_NAME', '');
+// define('DB_USER', '');
+// define('DB_PASSWORD', '');
+// define('DB_HOST', 'localhost');
+// define('DB_CHARSET', 'utf8');
+// define('DB_COLLATE', '');
 
 error_reporting(E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING);
+
+// Config file
+$config = file(CONFIG_FILE);
 
 $_config = array();
 foreach ($config as $item) {

@@ -3,7 +3,7 @@
 // Importing...
 
 // Local to your wp-config.php
-include '../code/blog/wp-config.php';
+include '../code/sistema/wp-config.php';
 
 $dba = 'mysql:host='.DB_HOST.';dbname='.DB_NAME;
 $con = new PDO($dba, DB_USER, DB_PASSWORD);
